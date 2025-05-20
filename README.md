@@ -41,8 +41,17 @@ Once set up, this single environment will work for all examples in the repositor
    GOOGLE_API_KEY=your_api_key_here
    ```
 
+### Setting Up for RAG
+
+1. Rename `.env.example` to `.env`
+2. Open the `.env` file and replace the placeholder with your googlecloud information
+3. run the prepare_corpus_data.py script to prepare the corpus data
+
 ## Official Documentation
 
 For more detailed information, check out the official ADK documentation:
 
 - https://google.github.io/adk-docs/get-started/quickstart
+- [Vertex AI RAG Documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview)
+- [Google Agent Development Kit (ADK) Documentation](https://github.com/google/agents-framework)
+- [Google Cloud Authentication Guide](https://cloud.google.com/docs/authentication)
