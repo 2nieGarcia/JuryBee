@@ -6,7 +6,12 @@ from dotenv import load_dotenv, set_key
 import json 
 import tempfile
 
+from ..config import (
+    DEFAULT_EMBEDDING_MODEL
+)
+
 load_dotenv()
+
 
 PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT")
 if not PROJECT_ID:
@@ -33,7 +38,7 @@ def initialize_vertex_ai():
 def create_or_get_corpus():
     """Creates a new corpus or retrieves an existing one."""
     embedding_model_config = rag.EmbeddingModelConfig(
-        publisher_model="publishers/google/models/text-embedding-004"
+        publisher_model=DEFAULT_EMBEDDING_MODEL
     )
     existing_corpora = rag.list_corpora()
     corpus = None
