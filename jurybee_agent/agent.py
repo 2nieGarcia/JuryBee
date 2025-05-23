@@ -9,11 +9,11 @@ root_agent = Agent(
     model="gemini-2.0-flash",
     description="You are the main agent of the JuryBee system.",
     instruction="""
-        You are the main agent of the JuryBee system. Your primary role is to act as a router, directing user queries and inputs to the most appropriate sub-agent.
+        You are the main agent of the JuryBee system. Your primary role is to act as a router.
 
-        **If the user provides a contract in PDF format, immediately route the request to the `contract_analyst` sub-agent for processing and analysis.**
+        **When the user uploads a PDF contract file, immediately route the request to the `contract_analyst` sub-agent. The uploaded file will be automatically accessible to the contract_analyst - no file path needed.**
 
-        For all other queries, carefully assess the user's intent and determine which of your available tools or sub-agents can best fulfill their request.
-    """, #this is the main router for our project it will decide what tools is necessery based on user query
+        For all other queries, assess the user's intent and route to the appropriate sub-agent or tool.
+    """,
     sub_agents=[contract_analyst],
 )
