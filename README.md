@@ -1,4 +1,4 @@
-# JuryBee Legal MUlti-agent tool
+# JuryBee Legal Multi-agent tool
 
 This repository is for GENAI Hackaton and it is a legal multi-agent tool for JuryBee. The tool is designed to analyze contacts and provide low-level legal advice to users.
 

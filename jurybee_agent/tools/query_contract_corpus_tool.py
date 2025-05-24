@@ -32,8 +32,8 @@ RAG_CORPUS_RESOURCE_NAME = os.environ.get("RAG_CORPUS")
 # Initialize Vertex AI globally if not already initialized
 import vertexai
 try:
-    if not vertexai.initializer._is_initialized:
-        vertexai.init(project=PROJECT_ID, location=LOCATION)
+    
+    vertexai.init(project=PROJECT_ID, location=LOCATION)
 except Exception as e:
     logging.error(f"Failed to initialize Vertex AI: {e}. "
                   "Please ensure GOOGLE_CLOUD_PROJECT and GOOGLE_CLOUD_LOCATION "
