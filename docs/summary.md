@@ -1,17 +1,17 @@
 ---
 title: JuryBee — Multi-Agent Contract Analyzer
-tagline: My first hackathon project, a multi-agent assistant that reads a contract PDF and flags risky clauses using RAG.
+tagline: A multi-agent legal assistant that reads a contract PDF and flags risky clauses, grounded in real contracts with RAG.
 area: ml
 stack: [Google ADK, Gemini 2.0 Flash, Vertex AI RAG Engine, PyMuPDF]
-note: My first hackathon
+note: Gen AI Hackathon semi-finalist; 3 agents read a contract PDF and check its clauses against the CUAD legal dataset
 ---
 
-JuryBee was my first hackathon project, built for a generative AI hackathon. Honestly, it's a simple project and I'd build it very differently today. But it's the one that opened my eyes to how AI agents and retrieval-augmented generation (RAG) actually work.
+A lot of Filipinos and small businesses sign contracts without any legal help. JuryBee gives them a first read, not legal advice: send it a contract and it pulls out the clauses that matter and points out the risks. It made the semi-finals of the Gen AI Hackathon.
 
-The problem we picked: a lot of Filipinos and small businesses sign contracts without any legal help. JuryBee reads a contract and points out the clauses that matter and the risks to watch for. It's a first read, not legal advice.
+I led our team, Joybread Studios, and wrote the agent code on Google's Agent Development Kit (ADK) with Gemini 2.0 Flash. A root agent looks for a Google Drive link in the message and hands it to a contract analyst agent, which downloads the PDF and extracts the text with PyMuPDF. The analyst passes it to a short-contract agent that summarizes the terms, walks through the critical clauses (parties, term, payment, termination, liability, governing law) and flags the risks.
 
-My team and I started by mapping the system as a diagram. A root agent routes the user's message, a contract analyst agent pulls the text out of the PDF, and short- and long-contract agents do the analysis, with legal adviser and lawyer recommendation agents planned on top. Then we built it on Google's Agent Development Kit (ADK) with Gemini 2.0 Flash. You send a Google Drive link, the analyst extracts the text with PyMuPDF, and the short-contract agent checks each clause against a RAG corpus on Vertex AI built from the Contract Understanding Atticus Dataset (CUAD).
+The part I'm proudest of is the retrieval-augmented generation (RAG). A setup script loads the 510 contracts of the Contract Understanding Atticus Dataset (CUAD) into a Vertex AI RAG corpus, and the short-contract agent queries it clause by clause, so its advice comes from real contract language instead of only the model's memory. In the demo it caught that a sample contract had no governing law clause and recommended adding one.
 
-Only the short-contract path got finished. The rest stayed on the diagram. What I took away was bigger than the code: how to split a problem across agents, how chunking and embeddings feed retrieval, and why grounding a model in real documents matters. I plan to rebuild it with all of that.
+Honestly, only the short-contract path got finished. Long-contract chunking and the legal adviser and lawyer recommendation agents stayed on the diagram. It was my first hackathon, and it's where I learned how to split a problem across agents and why grounding a model in real documents matters.
 
 [Watch our demo video](https://github.com/2nieGarcia/JuryBee/blob/main/docs/demo.mp4)
