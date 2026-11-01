@@ -4,6 +4,7 @@ tagline: A multi-agent legal assistant that reads a contract PDF and flags risky
 area: ml
 stack: [Google ADK, Gemini 2.0 Flash, Vertex AI RAG Engine, PyMuPDF]
 note: Gen AI Hackathon semi-finalist; 3 agents read a contract PDF and check its clauses against the CUAD legal dataset
+order: 4
 ---
 
 A lot of Filipinos and small businesses sign contracts without any legal help. JuryBee gives them a first read, not legal advice: send it a contract and it pulls out the clauses that matter and points out the risks. It made the semi-finals of the Gen AI Hackathon.
